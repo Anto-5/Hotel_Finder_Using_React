@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import LoadingSpinner from "../components/LoadingSpinner";
 import { getHotel } from "../services/api";
 
 import "../styles/HotelDetails.css";
@@ -13,6 +13,7 @@ function HotelDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     async function fetchHotel() {
       try {
         const data = await getHotel(id);
@@ -25,9 +26,9 @@ function HotelDetails() {
     fetchHotel();
   }, [id]);
 
-  if (loading) {
-    return <h2 className="status">Loading...</h2>;
-  }
+    if (loading) {
+        return <LoadingSpinner />;
+    }
 
   if (!hotel) {
     return <h2 className="status">Hotel not found.</h2>;

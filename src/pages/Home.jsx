@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
-
+import LoadingSpinner from "../components/LoadingSpinner";
 import HotelCard from "../components/HotelCard";
 import SearchBar from "../components/SearchBar";
 import FilterBar from "../components/FilterBar";
@@ -32,11 +32,17 @@ function Home() {
   }, []);
 
   if (loading) {
-    return <h2 className="status">Loading hotels...</h2>;
+    return <LoadingSpinner />;
   }
 
   if (error) {
-    return <h2 className="status">{error}</h2>;
+    return <div className="empty-state">
+  <h2>No Hotels Found</h2>
+
+  <p>
+    Try searching with a different hotel name or city.
+  </p>
+</div>;
   }
 
   const cities = [...new Set(hotels.map((hotel) => hotel.location))];

@@ -24,3 +24,32 @@ padding:40px 60px;
 text-align:center;
 margin-top:120px;
 }
+.empty-state{
+text-align:center;
+padding:60px 20px;
+}
+
+.empty-state h2{
+font-size:34px;
+margin-bottom:15px;
+}
+
+.empty-state p{
+color:#666;
+font-size:18px;
+}
+@media (max-width:768px){
+
+.hero h1{
+font-size:36px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.hotel-grid{
+padding:20px;
+}
+
+}
