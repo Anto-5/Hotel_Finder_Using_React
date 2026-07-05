@@ -1,6 +1,12 @@
 import "../styles/HotelCard.css";
-
+import { useNavigate } from "react-router-dom";
 function HotelCard({ hotel }) {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/hotel/${hotel.id}`);
+  };
+
   return (
     <div className="hotel-card">
 
@@ -29,9 +35,11 @@ function HotelCard({ hotel }) {
           ₹ {Number(hotel.price).toLocaleString()}
         </h3>
 
-        <button>
-          View Details
-        </button>
+        <button
+  onClick={() => navigate(`/hotel/${hotel.id}`)}
+>
+  View Details
+</button>
 
       </div>
 

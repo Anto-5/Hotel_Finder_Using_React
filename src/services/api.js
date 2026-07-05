@@ -11,3 +11,15 @@ export async function getHotels() {
 
   return data.data;
 }
+
+export async function getHotel(id) {
+  const response = await fetch(`${BASE_URL}/hotels/${id}/`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch hotel");
+  }
+
+  const data = await response.json();
+
+  return data.data;
+}
