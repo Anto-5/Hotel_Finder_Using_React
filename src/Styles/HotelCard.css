@@ -1,0 +1,78 @@
+.hotel-card{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+
+.hotel-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 35px rgba(0,0,0,.15);
+}
+
+.hotel-image{
+position:relative;
+overflow:hidden;
+}
+
+.hotel-image img{
+width:100%;
+height:240px;
+object-fit:cover;
+transition:.4s;
+}
+
+.hotel-card:hover img{
+transform:scale(1.08);
+}
+
+.rating-badge{
+position:absolute;
+top:15px;
+right:15px;
+background:#2563eb;
+color:white;
+padding:7px 12px;
+border-radius:25px;
+font-weight:600;
+font-size:14px;
+}
+
+.hotel-content{
+padding:22px;
+}
+
+.hotel-content h2{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.location{
+color:#666;
+margin-bottom:18px;
+}
+
+.hotel-content h3{
+color:#2563eb;
+margin-bottom:18px;
+}
+
+.hotel-content button{
+width:100%;
+padding:12px;
+border:none;
+background:#2563eb;
+color:white;
+font-size:16px;
+font-weight:600;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.hotel-content button:hover{
+background:#1d4ed8;
+}

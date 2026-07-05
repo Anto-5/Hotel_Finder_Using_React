@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
-
+import HotelCard from "../components/HotelCard";
 import { getHotels } from "../services/api";
 
 function Home() {
@@ -59,26 +59,10 @@ function Home() {
 
         {hotels.map((hotel) => (
 
-          <div className="hotel-card" key={hotel.id}>
-
-            <img
-              src={hotel.thumbnail}
-              alt={hotel.name}
-            />
-
-            <div className="hotel-content">
-
-              <h3>{hotel.name}</h3>
-
-              <p>{hotel.location}</p>
-
-              <h4>₹ {Number(hotel.price).toLocaleString()}</h4>
-
-              <p>⭐ {hotel.rating}</p>
-
-            </div>
-
-          </div>
+          <HotelCard
+        key={hotel.id}
+        hotel={hotel}
+    />
 
         ))}
 
