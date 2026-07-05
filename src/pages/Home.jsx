@@ -1,5 +1,47 @@
+import { useEffect, useState } from "react";
 import "../styles/Home.css";
+
+import { getHotels } from "../services/api";
+
 function Home() {
+
+  const [hotels, setHotels] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+
+    async function fetchHotels() {
+
+      try {
+
+        const data = await getHotels();
+        setHotels(data);
+
+      } catch {
+
+        setError("Unable to load hotels.");
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    }
+
+    fetchHotels();
+
+  }, []);
+
+  if (loading) {
+    return <h2 className="status">Loading hotels...</h2>;
+  }
+
+  if (error) {
+    return <h2 className="status">{error}</h2>;
+  }
+
   return (
     <div className="home">
 
@@ -8,9 +50,37 @@ function Home() {
         <h1>Find Your Perfect Hotel</h1>
 
         <p>
-          Discover comfortable stays across India with the best prices,
-          ratings and locations.
+          Discover comfortable stays across India with the best prices.
         </p>
+
+      </section>
+
+      <section className="hotel-grid">
+
+        {hotels.map((hotel) => (
+
+          <div className="hotel-card" key={hotel.id}>
+
+            <img
+              src={hotel.thumbnail}
+              alt={hotel.name}
+            />
+
+            <div className="hotel-content">
+
+              <h3>{hotel.name}</h3>
+
+              <p>{hotel.location}</p>
+
+              <h4>₹ {Number(hotel.price).toLocaleString()}</h4>
+
+              <p>⭐ {hotel.rating}</p>
+
+            </div>
+
+          </div>
+
+        ))}
 
       </section>
 
