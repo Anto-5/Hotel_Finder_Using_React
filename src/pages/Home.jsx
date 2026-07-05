@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "../styles/Home.css";
 import HotelCard from "../components/HotelCard";
 import { getHotels } from "../services/api";
-
+import SearchBar from "../components/SearchBar";
 function Home() {
-
+    const [search, setSearch] = useState("");
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -41,35 +41,48 @@ function Home() {
   if (error) {
     return <h2 className="status">{error}</h2>;
   }
+  const filteredHotels = hotels.filter((hotel) => {
+
+  const keyword = search.toLowerCase();
 
   return (
-    <div className="home">
+    hotel.name.toLowerCase().includes(keyword) ||
+    hotel.location.toLowerCase().includes(keyword)
+  );
 
-      <section className="hero">
+});
 
-        <h1>Find Your Perfect Hotel</h1>
+  return (
+  <div className="home">
 
-        <p>
-          Discover comfortable stays across India with the best prices.
-        </p>
+    <section className="hero">
+      ...
+    </section>
 
-      </section>
-
-      <section className="hotel-grid">
-
-        {hotels.map((hotel) => (
-
-          <HotelCard
-        key={hotel.id}
-        hotel={hotel}
+    <SearchBar
+      search={search}
+      setSearch={setSearch}
     />
 
-        ))}
+    <section className="hotel-grid">
 
-      </section>
+      {filteredHotels.map((hotel) => (
+        <HotelCard
+          key={hotel.id}
+          hotel={hotel}
+        />
+      ))}
 
-    </div>
-  );
+    </section>
+
+    {filteredHotels.length === 0 && (
+      <h2 className="status">
+        No hotels found.
+      </h2>
+    )}
+
+  </div>
+);
 }
 
 export default Home;
