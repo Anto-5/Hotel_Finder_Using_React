@@ -1,0 +1,25 @@
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#2563eb;
+}
+
+.navbar ul{
+display:flex;
+gap:30px;
+font-weight:500;
+cursor:pointer;
+}
+
+.navbar li:hover{
+color:#2563eb;
+}
