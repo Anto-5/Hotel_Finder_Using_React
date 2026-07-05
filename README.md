@@ -1,16 +1,46 @@
-# React + Vite
+# Hotel Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive hotel search application built with React and Vite that integrates with a REST API to display hotel listings and detailed hotel information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- View hotel listings
+- Search hotels by name or location
+- Filter hotels by city
+- Sort hotels by price
+- View detailed hotel information
+- Image gallery for each hotel
+- Responsive design
+- Loading spinner and empty state handling
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router DOM
+- CSS3
+- REST API
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+https://demohotelsapi.pythonanywhere.com/
+
+## Getting Started
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
